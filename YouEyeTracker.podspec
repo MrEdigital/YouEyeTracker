@@ -17,7 +17,8 @@ Pod::Spec.new do |spec|
 
   spec.name         = "YouEyeTracker"
   spec.version      = "1.0.0"
-  spec.summary      = "A library through which a user can subscribe to receive 3D real-world-space eye-tracking position callbacks relative to the position of the front-facing camera."
+  spec.summary      = "A library through which a user can subscribe to receive 3D real-world-space eye-tracking position callbacks."
+  spec.swift_version = '5.0'
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
