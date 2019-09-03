@@ -16,8 +16,8 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "YouEyeTracker"
-  spec.version      = "0.0.1"
-  spec.summary      = "A simple library for providing Eye-Tracking-Related callbacks."
+  spec.version      = "1.0.0"
+  spec.summary      = "A library through which a user can subscribe to receive 3D real-world-space eye-tracking position callbacks relative to the position of the front-facing camera."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,7 +25,7 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
-                      A simple library for providing Eye Position and Eye Gaze callbacks.
+                      A library through which a user can subscribe to receive 3D real-world-space eye-tracking position callbacks relative to the position of the device's front-facing camera.
                       DESC
 
   spec.homepage     = "https://github.com/MREdigital/YouEyeTracker"

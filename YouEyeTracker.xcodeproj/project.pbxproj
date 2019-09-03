@@ -14,7 +14,6 @@
 		D63CFBDA22F5276900F627F4 /* ARFaceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63CFBD922F5276900F627F4 /* ARFaceNode.swift */; };
 		D63CFBF622F539B200F627F4 /* float4x4+Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63CFBF522F539B200F627F4 /* float4x4+Translation.swift */; };
 		D63CFBF822F539BF00F627F4 /* Math+Averages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63CFBF722F539BF00F627F4 /* Math+Averages.swift */; };
-		D666CB76231E94A50049EB33 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D666CB75231E94A50049EB33 /* README.md */; };
 		D666CB78231EA9320049EB33 /* EyePositionSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = D666CB77231EA9320049EB33 /* EyePositionSubscriber.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +32,7 @@
 		D63CFBF722F539BF00F627F4 /* Math+Averages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Math+Averages.swift"; sourceTree = "<group>"; };
 		D666CB75231E94A50049EB33 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D666CB77231EA9320049EB33 /* EyePositionSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyePositionSubscriber.swift; sourceTree = "<group>"; };
+		D666CB79231EB8AF0049EB33 /* YouEyeTracker.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = YouEyeTracker.podspec; sourceTree = "<group>"; };
 		E4768AE974B2AC3306C390E4 /* Pods-UIDepth Sample App-UIDepth-YouEyeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIDepth Sample App-UIDepth-YouEyeTracker.debug.xcconfig"; path = "Target Support Files/Pods-UIDepth Sample App-UIDepth-YouEyeTracker/Pods-UIDepth Sample App-UIDepth-YouEyeTracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +71,7 @@
 		D63CFBC022F526A000F627F4 = {
 			isa = PBXGroup;
 			children = (
+				D666CB79231EB8AF0049EB33 /* YouEyeTracker.podspec */,
 				D666CB75231E94A50049EB33 /* README.md */,
 				D63CFBCC22F526A000F627F4 /* YouEyeTracker */,
 				D63CFBCB22F526A000F627F4 /* Products */,
@@ -188,7 +189,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D666CB76231E94A50049EB33 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,14 +364,15 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2AEX5V64Z7;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = YouEyeTracker/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -379,6 +380,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = digital.mre.YouEyeTracker;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -392,14 +394,15 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2AEX5V64Z7;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = YouEyeTracker/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -407,6 +410,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = digital.mre.YouEyeTracker;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

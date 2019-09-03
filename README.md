@@ -1,6 +1,6 @@
  # YouEyeTracker
 
-This library provides a singleton class (YouEyeTracker) through which a user can subscribe to receive real-world-space eye-tracking callbacks relative to the position of the front-facing camera. 
+A library through which a user can subscribe to receive 3d real-world-space eye-tracking position callbacks relative to the position of the front-facing camera.
 
     public
     extension YouEyeTracker {
