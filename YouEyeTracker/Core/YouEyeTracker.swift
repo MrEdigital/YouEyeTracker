@@ -30,35 +30,23 @@ import ARKit
 /// find particularly useful at this time.  So with the intent of lightening the load of this class
 /// I have left it out entirely.
 ///
-public // MARK: - Class Definition -
+public // MARK: - Setup -
 class YouEyeTracker : NSObject {
     
-    /// The primary class singleton
+    /// The primary class singleton.  A pattern ~everybody~ loves.
     public static let shared             : YouEyeTracker = .init()
     
     /// Making the internal sceneView public for those who would like to visualize their values
-    public  let sceneView                : ARSCNView    = .init()
+    public  let sceneView                : ARSCNView     = .init()
     
-    private let faceNode                 : ARFaceNode   = .init()
-    private var trackedEyePosition       : float3?      { didSet { broadcastEyePositionMoved(to: trackedEyePosition) }}
-    private var eyePositionSubscribers   : [ARPositionSubscriberWrapper] = []
-    private var subscriptionCleanupTimer : Timer?
+    private var faceNode                 : ARFaceNode    = .init()
+    private var trackedEyePosition       : SIMD3<Float>? { didSet { broadcastEyePositionMoved(to: trackedEyePosition) }}
+    private let subscriptionManager      : SubscriptionManager<EyePositionSubscriber> = .init()
     
     private override init() {
         super.init()
         sceneView.translatesAutoresizingMaskIntoConstraints = false
         sceneView.scene.rootNode.addChildNode(faceNode)
-        subscriptionCleanupTimer = .scheduledTimer(withTimeInterval: 2, repeats: true, block: { [weak self] _ in
-            self?.purgeSubscribersIfNeeded()
-        })
-    }
-    
-    deinit {
-        if let subscriptionCleanupTimer = subscriptionCleanupTimer {
-            subscriptionCleanupTimer.invalidate()
-            self.subscriptionCleanupTimer = nil
-        }
-        eyePositionSubscribers.removeAll()
     }
 }
 
@@ -70,7 +58,7 @@ extension YouEyeTracker {
         resetTracking()
     }
     
-    // This stops the eye tracking processes of YouEyeTracker
+    /// This stops the eye tracking processes of YouEyeTracker
     func stop()  {
         stopTracking()
         broadcastEyeTrackingInerruption()
@@ -80,15 +68,9 @@ extension YouEyeTracker {
 public // MARK: - Subscribing -
 extension YouEyeTracker {
     
-    private
-    class ARPositionSubscriberWrapper {
-        weak var subscriber: EyePositionSubscriber?
-        init(subscriber: EyePositionSubscriber) { self.subscriber = subscriber }
-    }
-    
-    // This allows conforming classes to subscribe to YouEyeTracker for protocol-defined callbacks
+    /// This allows conforming classes to subscribe to YouEyeTracker for protocol-defined callbacks
     func subscribe(_ subscriber: EyePositionSubscriber) {
-        eyePositionSubscribers.append(.init(subscriber: subscriber))
+        subscriptionManager.subscribe(subscriber)
     }
 }
 
@@ -96,17 +78,16 @@ private // MARK: - Subscriber Broadcasting -
 extension YouEyeTracker {
     
     // Broadcasting
-    func broadcastEyePositionMoved(to position: float3?) {
-        eyePositionSubscribers.forEach { $0.subscriber?.eyePositionMovedTo(position: position) }
+    func broadcastEyePositionMoved(to position: SIMD3<Float>?) {
+        guard let position = position else {
+            subscriptionManager.subscribers.forEach { $0.subscriber?.eyeTrackingInterrupted() }
+            return
+        }
+        subscriptionManager.subscribers.forEach { $0.subscriber?.eyePositionMovedTo(xPosition: position.x, yPosition: position.y, zPosition: position.z) }
     }
     
     func broadcastEyeTrackingInerruption() {
-        eyePositionSubscribers.forEach { $0.subscriber?.eyeTrackingInterrupted() }
-    }
-    
-    // Cleanup
-    func purgeSubscribersIfNeeded() {
-        eyePositionSubscribers = eyePositionSubscribers.filter { $0.subscriber != nil }
+        subscriptionManager.subscribers.forEach { $0.subscriber?.eyeTrackingInterrupted() }
     }
 }
 
@@ -114,7 +95,10 @@ private // MARK: - Internal Behavior -
 extension YouEyeTracker {
     
     func resetTracking() {
+        
+        #if !DEBUG
         guard ARFaceTrackingConfiguration.isSupported else { return }
+        #endif
         
         let configuration = ARFaceTrackingConfiguration()
         configuration.worldAlignment = .camera
@@ -135,25 +119,24 @@ extension YouEyeTracker {
 // MARK: - ARSession Delegate Conformance -
 extension YouEyeTracker : ARSessionDelegate {
     
+    public func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) { cameraTrackingStateDidChange(to: camera.trackingState) }
+    public func session(_ session: ARSession, didUpdate anchors: [ARAnchor])                 { updateFromAnchor(anchors.first(where: { $0 is FaceAnchor }) as? FaceAnchor) }
     public func session(_ session: ARSession, didFailWithError error: Error) {
         broadcastEyeTrackingInerruption()
         resetTracking()
     }
     
-    public func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
-        guard #available(iOS 12.0, *) else { return }
-        
-        if let faceAnchor = anchors.first(where: { $0 is ARFaceAnchor }) as? ARFaceAnchor {
-            faceNode.update(from: faceAnchor)
-            trackedEyePosition = float3(faceNode.eyePosition(for: YouEyeTracker.pointOfView))
-        }
-    }
-    
-    public func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
-        switch camera.trackingState {
+    func cameraTrackingStateDidChange(to trackingState: ARCamera.TrackingState) {
+        switch trackingState {
             case .notAvailable: broadcastEyeTrackingInerruption()
             default: return
         }
+    }
+    
+    func updateFromAnchor(_ faceAnchor: FaceAnchor?) {
+        guard let faceAnchor = faceAnchor else { return }
+        faceNode.update(fromFaceTransform: faceAnchor.transform, leftEyeTransform: faceAnchor.leftEyeTransform, rightEyeTransform: faceAnchor.rightEyeTransform)
+        trackedEyePosition = .init(faceNode.eyePosition(for: YouEyeTracker.pointOfView))
     }
 }
 
@@ -164,3 +147,27 @@ extension YouEyeTracker {
         faceNode.setGeometryVisible(geometryVisible)
     }
 }
+
+// MARK: - Private access for Unit Testing -
+#if DEBUG
+
+extension YouEyeTracker {
+    
+    static func testInit() -> YouEyeTracker {
+        return .init()
+    }
+    
+    func test_overrideFaceNode(with faceNode: ARFaceNode) {
+        self.faceNode = faceNode
+    }
+    
+    func test_broadcastEyePositionMoved(to position: SIMD3<Float>?) {
+        broadcastEyePositionMoved(to: position)
+    }
+    
+    func test_broadcastEyeTrackingInerruption() {
+        broadcastEyeTrackingInerruption()
+    }
+}
+
+#endif

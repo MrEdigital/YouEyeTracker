@@ -12,7 +12,7 @@ public
 extension YouEyeTracker {
     
     static var pointOfView             : Config.PointOfView? = nil
-    static var showTrackingInSceneView : Bool      = false { didSet { shared.setGeometryVisible(showTrackingInSceneView) }}
+    static var showTrackingInSceneView : Bool                = false { didSet { shared.setGeometryVisible(showTrackingInSceneView) }}
     
     /// This configures YouEyeTracker using the supplied configuration.
     ///
@@ -28,8 +28,8 @@ extension YouEyeTracker {
             case leftEye, rightEye, eyeAverage
         }
         
-        var pointOfView: PointOfView?
-        var showTrackingInSceneView: Bool
+        var pointOfView : PointOfView?
+        var showTrackingInSceneView : Bool
         
         /// - Parameters:
         ///     - pointOfView: The point in which the user's perspective calculations should be relative to.

@@ -15,7 +15,24 @@
 		D63CFBF622F539B200F627F4 /* float4x4+Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63CFBF522F539B200F627F4 /* float4x4+Translation.swift */; };
 		D63CFBF822F539BF00F627F4 /* Math+Averages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63CFBF722F539BF00F627F4 /* Math+Averages.swift */; };
 		D666CB78231EA9320049EB33 /* EyePositionSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = D666CB77231EA9320049EB33 /* EyePositionSubscriber.swift */; };
+		D69273A1233FF46400BCFA21 /* ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69273A0233FF46400BCFA21 /* ExtensionTests.swift */; };
+		D69273A3233FF46500BCFA21 /* YouEyeTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D63CFBCA22F526A000F627F4 /* YouEyeTracker.framework */; };
+		D69273AA23400AC600BCFA21 /* ARFaceNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69273A923400AC600BCFA21 /* ARFaceNodeTests.swift */; };
+		D69273AC2340504D00BCFA21 /* YouEyeTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69273AB2340504D00BCFA21 /* YouEyeTrackerTests.swift */; };
+		D69273B02340600900BCFA21 /* SubscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69273AF2340600900BCFA21 /* SubscriptionManager.swift */; };
+		D69273B22340706F00BCFA21 /* SubscriptionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69273B12340706F00BCFA21 /* SubscriptionManagerTests.swift */; };
+		D69273E22340819200BCFA21 /* FaceAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69273E12340819200BCFA21 /* FaceAnchor.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D69273A4233FF46500BCFA21 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D63CFBC122F526A000F627F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D63CFBC922F526A000F627F4;
+			remoteInfo = YouEyeTracker;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0411DF7CFE0A147161946BA2 /* Pods-UIDepth Sample App-UIDepth-YouEyeTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIDepth Sample App-UIDepth-YouEyeTracker.release.xcconfig"; path = "Target Support Files/Pods-UIDepth Sample App-UIDepth-YouEyeTracker/Pods-UIDepth Sample App-UIDepth-YouEyeTracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -32,7 +49,15 @@
 		D63CFBF722F539BF00F627F4 /* Math+Averages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Math+Averages.swift"; sourceTree = "<group>"; };
 		D666CB75231E94A50049EB33 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D666CB77231EA9320049EB33 /* EyePositionSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyePositionSubscriber.swift; sourceTree = "<group>"; };
-		D666CB79231EB8AF0049EB33 /* YouEyeTracker.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = YouEyeTracker.podspec; sourceTree = "<group>"; };
+		D666CB79231EB8AF0049EB33 /* YouEyeTracker.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = YouEyeTracker.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D692739E233FF46400BCFA21 /* YouEyeTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YouEyeTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D69273A0233FF46400BCFA21 /* ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
+		D69273A2233FF46500BCFA21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D69273A923400AC600BCFA21 /* ARFaceNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARFaceNodeTests.swift; sourceTree = "<group>"; };
+		D69273AB2340504D00BCFA21 /* YouEyeTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouEyeTrackerTests.swift; sourceTree = "<group>"; };
+		D69273AF2340600900BCFA21 /* SubscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManager.swift; sourceTree = "<group>"; };
+		D69273B12340706F00BCFA21 /* SubscriptionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionManagerTests.swift; sourceTree = "<group>"; };
+		D69273E12340819200BCFA21 /* FaceAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceAnchor.swift; sourceTree = "<group>"; };
 		E4768AE974B2AC3306C390E4 /* Pods-UIDepth Sample App-UIDepth-YouEyeTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIDepth Sample App-UIDepth-YouEyeTracker.debug.xcconfig"; path = "Target Support Files/Pods-UIDepth Sample App-UIDepth-YouEyeTracker/Pods-UIDepth Sample App-UIDepth-YouEyeTracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -42,6 +67,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0216CEAAC1A936634CAC43B /* Pods_YouEyeTracker.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D692739B233FF46400BCFA21 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D69273A3233FF46500BCFA21 /* YouEyeTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +107,7 @@
 				D666CB79231EB8AF0049EB33 /* YouEyeTracker.podspec */,
 				D666CB75231E94A50049EB33 /* README.md */,
 				D63CFBCC22F526A000F627F4 /* YouEyeTracker */,
+				D692739F233FF46400BCFA21 /* YouEyeTrackerTests */,
 				D63CFBCB22F526A000F627F4 /* Products */,
 				88948A07913BFE3FD3CB4D5F /* Pods */,
 				A1134B905B6ACD793295FAFB /* Frameworks */,
@@ -84,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				D63CFBCA22F526A000F627F4 /* YouEyeTracker.framework */,
+				D692739E233FF46400BCFA21 /* YouEyeTrackerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,7 +140,9 @@
 				D63CFBD522F5272700F627F4 /* YouEyeTracker.swift */,
 				D63CFBD722F5274600F627F4 /* YouEyeTracker+Configuration.swift */,
 				D666CB77231EA9320049EB33 /* EyePositionSubscriber.swift */,
+				D69273AF2340600900BCFA21 /* SubscriptionManager.swift */,
 				D63CFBD922F5276900F627F4 /* ARFaceNode.swift */,
+				D69273E12340819200BCFA21 /* FaceAnchor.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -117,6 +154,18 @@
 				D63CFBF722F539BF00F627F4 /* Math+Averages.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D692739F233FF46400BCFA21 /* YouEyeTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				D69273AB2340504D00BCFA21 /* YouEyeTrackerTests.swift */,
+				D69273B12340706F00BCFA21 /* SubscriptionManagerTests.swift */,
+				D69273A923400AC600BCFA21 /* ARFaceNodeTests.swift */,
+				D69273A0233FF46400BCFA21 /* ExtensionTests.swift */,
+				D69273A2233FF46500BCFA21 /* Info.plist */,
+			);
+			path = YouEyeTrackerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,18 +201,40 @@
 			productReference = D63CFBCA22F526A000F627F4 /* YouEyeTracker.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		D692739D233FF46400BCFA21 /* YouEyeTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D69273A8233FF46500BCFA21 /* Build configuration list for PBXNativeTarget "YouEyeTrackerTests" */;
+			buildPhases = (
+				D692739A233FF46400BCFA21 /* Sources */,
+				D692739B233FF46400BCFA21 /* Frameworks */,
+				D692739C233FF46400BCFA21 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D69273A5233FF46500BCFA21 /* PBXTargetDependency */,
+			);
+			name = YouEyeTrackerTests;
+			productName = YouEyeTrackerTests;
+			productReference = D692739E233FF46400BCFA21 /* YouEyeTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		D63CFBC122F526A000F627F4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "MRE Digital, llc";
 				TargetAttributes = {
 					D63CFBC922F526A000F627F4 = {
 						CreatedOnToolsVersion = 10.2.1;
 						LastSwiftMigration = 1020;
+					};
+					D692739D233FF46400BCFA21 = {
+						CreatedOnToolsVersion = 11.0;
 					};
 				};
 			};
@@ -173,6 +244,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = D63CFBC022F526A000F627F4;
 			productRefGroup = D63CFBCB22F526A000F627F4 /* Products */;
@@ -180,12 +252,20 @@
 			projectRoot = "";
 			targets = (
 				D63CFBC922F526A000F627F4 /* YouEyeTracker */,
+				D692739D233FF46400BCFA21 /* YouEyeTrackerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D63CFBC822F526A000F627F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D692739C233FF46400BCFA21 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -227,13 +307,34 @@
 				D666CB78231EA9320049EB33 /* EyePositionSubscriber.swift in Sources */,
 				D63CFBDA22F5276900F627F4 /* ARFaceNode.swift in Sources */,
 				D63CFBD622F5272700F627F4 /* YouEyeTracker.swift in Sources */,
+				D69273E22340819200BCFA21 /* FaceAnchor.swift in Sources */,
 				D63CFBF622F539B200F627F4 /* float4x4+Translation.swift in Sources */,
+				D69273B02340600900BCFA21 /* SubscriptionManager.swift in Sources */,
 				D63CFBF822F539BF00F627F4 /* Math+Averages.swift in Sources */,
 				D63CFBD822F5274600F627F4 /* YouEyeTracker+Configuration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D692739A233FF46400BCFA21 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D69273B22340706F00BCFA21 /* SubscriptionManagerTests.swift in Sources */,
+				D69273A1233FF46400BCFA21 /* ExtensionTests.swift in Sources */,
+				D69273AA23400AC600BCFA21 /* ARFaceNodeTests.swift in Sources */,
+				D69273AC2340504D00BCFA21 /* YouEyeTrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D69273A5233FF46500BCFA21 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D63CFBC922F526A000F627F4 /* YouEyeTracker */;
+			targetProxy = D69273A4233FF46500BCFA21 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		D63CFBD022F526A000F627F4 /* Debug */ = {
@@ -417,6 +518,44 @@
 			};
 			name = Release;
 		};
+		D69273A6233FF46500BCFA21 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2AEX5V64Z7;
+				INFOPLIST_FILE = YouEyeTrackerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = digital.mre.YouEyeTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D69273A7233FF46500BCFA21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2AEX5V64Z7;
+				INFOPLIST_FILE = YouEyeTrackerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = digital.mre.YouEyeTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -434,6 +573,15 @@
 			buildConfigurations = (
 				D63CFBD322F526A000F627F4 /* Debug */,
 				D63CFBD422F526A000F627F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D69273A8233FF46500BCFA21 /* Build configuration list for PBXNativeTarget "YouEyeTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D69273A6233FF46500BCFA21 /* Debug */,
+				D69273A7233FF46500BCFA21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

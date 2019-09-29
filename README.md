@@ -2,6 +2,7 @@
 
 A library through which a user can subscribe to receive 3d real-world-space eye-tracking position callbacks relative to the position of the front-facing camera.
 
+```swift
     public
     extension YouEyeTracker {
        
@@ -20,6 +21,7 @@ A library through which a user can subscribe to receive 3d real-world-space eye-
         /// This allows conforming classes to subscribe to YouEyeTracker for protocol-defined callbacks
         func subscribe(_ subscriber: EyePositionSubscriber)
     }
+```
 
 ## Installation and use
 
