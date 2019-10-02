@@ -50,7 +50,7 @@
 		D666CB75231E94A50049EB33 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D666CB77231EA9320049EB33 /* EyePositionSubscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyePositionSubscriber.swift; sourceTree = "<group>"; };
 		D666CB79231EB8AF0049EB33 /* YouEyeTracker.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = YouEyeTracker.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		D692739E233FF46400BCFA21 /* YouEyeTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YouEyeTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D692739E233FF46400BCFA21 /* YouEyeTracker_UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YouEyeTracker_UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D69273A0233FF46400BCFA21 /* ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTests.swift; sourceTree = "<group>"; };
 		D69273A2233FF46500BCFA21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D69273A923400AC600BCFA21 /* ARFaceNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARFaceNodeTests.swift; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 				D666CB79231EB8AF0049EB33 /* YouEyeTracker.podspec */,
 				D666CB75231E94A50049EB33 /* README.md */,
 				D63CFBCC22F526A000F627F4 /* YouEyeTracker */,
-				D692739F233FF46400BCFA21 /* YouEyeTrackerTests */,
+				D692739F233FF46400BCFA21 /* YouEyeTracker_UnitTests */,
 				D63CFBCB22F526A000F627F4 /* Products */,
 				88948A07913BFE3FD3CB4D5F /* Pods */,
 				A1134B905B6ACD793295FAFB /* Frameworks */,
@@ -118,7 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				D63CFBCA22F526A000F627F4 /* YouEyeTracker.framework */,
-				D692739E233FF46400BCFA21 /* YouEyeTrackerTests.xctest */,
+				D692739E233FF46400BCFA21 /* YouEyeTracker_UnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,7 +156,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		D692739F233FF46400BCFA21 /* YouEyeTrackerTests */ = {
+		D692739F233FF46400BCFA21 /* YouEyeTracker_UnitTests */ = {
 			isa = PBXGroup;
 			children = (
 				D69273AB2340504D00BCFA21 /* YouEyeTrackerTests.swift */,
@@ -165,7 +165,7 @@
 				D69273A0233FF46400BCFA21 /* ExtensionTests.swift */,
 				D69273A2233FF46500BCFA21 /* Info.plist */,
 			);
-			path = YouEyeTrackerTests;
+			path = YouEyeTracker_UnitTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,9 +201,9 @@
 			productReference = D63CFBCA22F526A000F627F4 /* YouEyeTracker.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D692739D233FF46400BCFA21 /* YouEyeTrackerTests */ = {
+		D692739D233FF46400BCFA21 /* YouEyeTracker_UnitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D69273A8233FF46500BCFA21 /* Build configuration list for PBXNativeTarget "YouEyeTrackerTests" */;
+			buildConfigurationList = D69273A8233FF46500BCFA21 /* Build configuration list for PBXNativeTarget "YouEyeTracker_UnitTests" */;
 			buildPhases = (
 				D692739A233FF46400BCFA21 /* Sources */,
 				D692739B233FF46400BCFA21 /* Frameworks */,
@@ -214,9 +214,9 @@
 			dependencies = (
 				D69273A5233FF46500BCFA21 /* PBXTargetDependency */,
 			);
-			name = YouEyeTrackerTests;
+			name = YouEyeTracker_UnitTests;
 			productName = YouEyeTrackerTests;
-			productReference = D692739E233FF46400BCFA21 /* YouEyeTrackerTests.xctest */;
+			productReference = D692739E233FF46400BCFA21 /* YouEyeTracker_UnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -252,7 +252,7 @@
 			projectRoot = "";
 			targets = (
 				D63CFBC922F526A000F627F4 /* YouEyeTracker */,
-				D692739D233FF46400BCFA21 /* YouEyeTrackerTests */,
+				D692739D233FF46400BCFA21 /* YouEyeTracker_UnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -525,7 +525,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2AEX5V64Z7;
-				INFOPLIST_FILE = YouEyeTrackerTests/Info.plist;
+				INFOPLIST_FILE = YouEyeTracker_UnitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -544,7 +544,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2AEX5V64Z7;
-				INFOPLIST_FILE = YouEyeTrackerTests/Info.plist;
+				INFOPLIST_FILE = YouEyeTracker_UnitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -579,7 +579,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D69273A8233FF46500BCFA21 /* Build configuration list for PBXNativeTarget "YouEyeTrackerTests" */ = {
+		D69273A8233FF46500BCFA21 /* Build configuration list for PBXNativeTarget "YouEyeTracker_UnitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D69273A6233FF46500BCFA21 /* Debug */,
