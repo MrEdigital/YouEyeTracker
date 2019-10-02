@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "YouEyeTracker"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = "A library through which a user can subscribe to receive 3D real-world-space eye-tracking position callbacks."
   spec.swift_version = '5.0'
 
