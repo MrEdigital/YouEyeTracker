@@ -135,14 +135,8 @@ extension YouEyeTracker {
 
 extension YouEyeTracker : ARSessionDelegate {
     
-    public func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
-        cameraTrackingStateDidChange(to: camera.trackingState)
-    }
-    
-    public func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
-        updateFromAnchor(anchors.first(where: { $0 is FaceAnchor }) as? FaceAnchor)
-    }
-    
+    public func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) { cameraTrackingStateDidChange(to: camera.trackingState) }
+    public func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) { updateFromAnchor(anchors.first(where: { $0 is FaceAnchor }) as? FaceAnchor) }
     public func session(_ session: ARSession, didFailWithError error: Error) {
         broadcastEyeTrackingInerruption()
         resetTracking()
