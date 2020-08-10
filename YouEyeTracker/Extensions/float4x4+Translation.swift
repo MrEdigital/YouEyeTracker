@@ -1,15 +1,14 @@
-//
-//  float4x4+Translation.swift
-//  YouEyeTracker
-//
-//  Created on 5/11/19.
-//  Copyright © 2019 Eric Reedy. All rights reserved.
-//
+///
+///  float4x4+Translation.swift
+///  Created on 5/11/19
+///  Copyright © 2019 Eric Reedy. All rights reserved.
+///
 
 import simd
 
 extension matrix_float4x4 {
     
+    ///
     /// - Returns: the translation portion of the 4x4 matrix.
     ///
     var translation: SIMD3<Float> {

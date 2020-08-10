@@ -1,16 +1,14 @@
-//
-//  SubscriptionManager.swift
-//  YouEyeTracker
-//
-//  Created on 9/28/19.
-//  Copyright © 2019 Eric Reedy. All rights reserved.
-//
+///
+///  SubscriptionManager.swift
+///  Created on 9/28/19
+///  Copyright © 2019 Eric Reedy. All rights reserved.
+///
 
 import Foundation
 
-// MARK: - Setup -
 extension YouEyeTracker {
     
+    // MARK: - Specification
     ///
     /// Maintains an array of weak object wrappers.  Sweeps any null weak wrappers away every 10 seconds.
     ///
@@ -24,9 +22,9 @@ extension YouEyeTracker {
             init(subscriber: T) { self.subscriber = subscriber }
         }
         
-        private(set) var subscribers : [SubscriberWrapper<T>] = []
-        private var subscriptionCleanupTimer : Timer?
-        let cleanupTimerInterval: TimeInterval = 5
+        private(set) var subscribers: [SubscriberWrapper<T>] = []
+        private var subscriptionCleanupTimer: Timer?
+        private let cleanupTimerInterval: TimeInterval = 5
         
         init() {
             // Setting up a periodic weak sweep timer
@@ -46,9 +44,11 @@ extension YouEyeTracker {
     }
 }
 
-// MARK: - Subscription Management -
+// MARK: - Subscription Management
+
 extension YouEyeTracker.SubscriptionManager {
         
+    ///
     /// This allows conforming classes to subscribe to YouEyeTracker for protocol-defined callbacks
     ///
     func subscribe(_ subscriber: T) {
@@ -56,26 +56,21 @@ extension YouEyeTracker.SubscriptionManager {
         subscribers.append(.init(subscriber: subscriber))
     }
     
-    /// Removes any null weak wrappers from the subscribers array.
+    ///
+    /// Removes any nil weak wrappers from the subscribers array.
     ///
     private func compact() {
         subscribers.removeAll(where: { $0.subscriber == nil })
     }
 }
 
-#if DEBUG
+// MARK: - Testing Accessors
 
-extension YouEyeTracker.SubscriptionManager {
-    
-    var test_subscriptionCleanupTimer : Timer? { return subscriptionCleanupTimer }
-    
-    func test_compact() {
-        compact()
+#if TESTING
+    extension YouEyeTracker.SubscriptionManager {        
+        var test_subscriptionCleanupTimer: Timer? { subscriptionCleanupTimer }
+        var test_cleanupTimerInterval: TimeInterval { cleanupTimerInterval }
+        func test_compact() { compact() }
+        func test_onDeinit() { onDeinit() }
     }
-    
-    func test_onDeinit() {
-        onDeinit()
-    }
-}
-
 #endif
