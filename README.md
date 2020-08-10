@@ -31,7 +31,7 @@ And remember to add a "Camera Usage Description" to your project's info.plist, s
 ## Usage
 
 - [Initialization](#Initialization)
-- [Configuring](#Configuring)
+- [Configuration](#Configuration)
 - [Starting and Stopping](#Starting-and-Stopping)
 - [Subscribing](#Subscribing)
 
