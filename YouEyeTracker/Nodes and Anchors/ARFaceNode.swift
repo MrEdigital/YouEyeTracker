@@ -1,27 +1,26 @@
-//
-//  ARFaceNode.swift
-//  YouEyeTracker
-//
-//  Created on 5/11/19.
-//  Copyright © 2019 Eric Reedy. All rights reserved.
-//
+///
+///  ARFaceNode.swift
+///  Created on 5/11/19
+///  Copyright © 2019 Eric Reedy. All rights reserved.
+///
 
 import ARKit
 
 extension YouEyeTracker {
     
+    // MARK: - Specification
     ///
-    /// A SceneKit node node created to accept ARFaceAnchor transforms, and return back face-based positions in world space.
-    /// It can, additionally, be made visible for inclusion within a scene.
+    /// A SceneKit node node created to accept ARFaceAnchor transforms, and return back face-based positions in world
+    /// space.  It can, additionally, be made visible for inclusion within a scene.
     ///
-    class ARFaceNode : SCNNode {
+    class ARFaceNode: SCNNode {
         
         private static let eyeProjectionDistance : Float = 1
     
-        private let leftEyeNode             : SCNNode   = .init()
-        private let leftEyeProjectionNode   : SCNNode   = .init()
-        private let rightEyeNode            : SCNNode   = .init()
-        private let rightEyeProjectionNode  : SCNNode   = .init()
+        private let leftEyeNode             : SCNNode = .init()
+        private let leftEyeProjectionNode   : SCNNode = .init()
+        private let rightEyeNode            : SCNNode = .init()
+        private let rightEyeProjectionNode  : SCNNode = .init()
         
         override public init() {
             super.init()
@@ -32,26 +31,33 @@ extension YouEyeTracker {
             super.init(coder: aDecoder)
             setup()
         }
-        
-        private
-        func setup() {
-            // Setup the Face Node Hierarchy
-            addChildNode(leftEyeNode)
-            addChildNode(rightEyeNode)
-            leftEyeNode.addChildNode(leftEyeProjectionNode)
-            rightEyeNode.addChildNode(rightEyeProjectionNode)
-            
-            // Extend the Projection Nodes well into the distance
-            leftEyeProjectionNode.position.z  = ARFaceNode.eyeProjectionDistance
-            rightEyeProjectionNode.position.z = ARFaceNode.eyeProjectionDistance
-        }
     }
 }
+
+// MARK: - Setup
+
+extension YouEyeTracker.ARFaceNode {
+    
+    private func setup() {
+        // Setup the Face Node Hierarchy
+        addChildNode(leftEyeNode)
+        addChildNode(rightEyeNode)
+        leftEyeNode.addChildNode(leftEyeProjectionNode)
+        rightEyeNode.addChildNode(rightEyeProjectionNode)
+        
+        // Extend the Projection Nodes well into the distance
+        leftEyeProjectionNode.position.z  = Self.eyeProjectionDistance
+        rightEyeProjectionNode.position.z = Self.eyeProjectionDistance
+    }
+}
+
+// MARK: - Behavior
 
 extension YouEyeTracker.ARFaceNode {
         
     ///
-    /// Applies the transform, leftEyeTransform, and rightEyeTransform to relevant nodes, such that their world positions, orientations, etc, can easily be determined.
+    /// Applies the transform, leftEyeTransform, and rightEyeTransform to relevant nodes, such that their world
+    /// positions, orientations, etc, can be easily determined.
     ///
     @objc dynamic
     func update(fromFaceTransform faceTransform: matrix_float4x4, leftEyeTransform: matrix_float4x4, rightEyeTransform: matrix_float4x4) {
@@ -62,7 +68,6 @@ extension YouEyeTracker.ARFaceNode {
     
     ///
     /// - Parameter pointOfView: Specifies a point of view which determines the eyePosition to be returned.
-    ///
     /// - Returns: The world position of a user's eye.
     ///
     func eyePosition(for pointOfView: YouEyeTracker.Config.PointOfView?) -> SCNVector3 {
@@ -77,7 +82,6 @@ extension YouEyeTracker.ARFaceNode {
     
     ///
     /// - Parameter pointOfView: Specifies a point of view which determines the eyeProjectionPosition to be returned.
-    ///
     /// - Returns: The world position projected outward some distance from the pupil of a user's eye.
     ///
     func eyeProjectionPosition(for pointOfView: YouEyeTracker.Config.PointOfView) -> SCNVector3 {
@@ -120,15 +124,14 @@ extension YouEyeTracker.ARFaceNode {
     }
 }
 
-// MARK: - Private access for Unit Testing -
-#if DEBUG
+// MARK: - Testing Accessors
 
-extension YouEyeTracker.ARFaceNode {
-    
-    var test_leftEyeNode             : SCNNode { return self.leftEyeNode }
-    var test_leftEyeProjectionNode   : SCNNode { return self.leftEyeProjectionNode }
-    var test_rightEyeNode            : SCNNode { return self.rightEyeNode }
-    var test_rightEyeProjectionNode  : SCNNode { return self.rightEyeProjectionNode }
-}
-
+#if TESTING
+    extension YouEyeTracker.ARFaceNode {
+        
+        var test_leftEyeNode            : SCNNode { return self.leftEyeNode }
+        var test_leftEyeProjectionNode  : SCNNode { return self.leftEyeProjectionNode }
+        var test_rightEyeNode           : SCNNode { return self.rightEyeNode }
+        var test_rightEyeProjectionNode : SCNNode { return self.rightEyeProjectionNode }
+    }
 #endif

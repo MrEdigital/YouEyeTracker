@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1100"
+   LastUpgradeVersion = "1150"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -10,26 +10,15 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES"
-      onlyGenerateCoverageForSpecifiedTargets = "YES">
-      <CodeCoverageTargets>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D63CFBC922F526A000F627F4"
-            BuildableName = "YouEyeTracker.framework"
-            BlueprintName = "YouEyeTracker"
-            ReferencedContainer = "container:YouEyeTracker.xcodeproj">
-         </BuildableReference>
-      </CodeCoverageTargets>
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D692739D233FF46400BCFA21"
-               BuildableName = "YouEyeTracker_UnitTests.xctest"
-               BlueprintName = "YouEyeTracker_UnitTests"
+               BlueprintIdentifier = "D6198E7324E0EA4600419AF6"
+               BuildableName = "YouEyeTracker-Tests.xctest"
+               BlueprintName = "YouEyeTracker-Tests"
                ReferencedContainer = "container:YouEyeTracker.xcodeproj">
             </BuildableReference>
          </TestableReference>

@@ -1,10 +1,8 @@
-//
-//  Math+Averages.swift
-//  YouEyeTracker
-//
-//  Created on 5/11/19.
-//  Copyright © 2019 Eric Reedy. All rights reserved.
-//
+///
+///  Math+Averages.swift
+///  Created on 5/11/19
+///  Copyright © 2019 Eric Reedy. All rights reserved.
+///
 
 import simd
 import SceneKit
@@ -83,7 +81,8 @@ extension Array where Element == CGFloat {
     }
     
     ///
-    /// Reduces the Array down to the specified number of elements last appended, and returns the average of the remainder.
+    /// Reduces the Array down to the specified number of elements last appended, and returns the average of the
+    /// remainder.
     ///
     /// - Parameter toCount: The maximum number of last objects added to the array you would like to have averaged.
     ///
